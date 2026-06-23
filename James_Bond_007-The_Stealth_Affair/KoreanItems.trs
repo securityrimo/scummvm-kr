@@ -1,0 +1,216 @@
+# ============================================================
+# James Bond 007 - The Stealth Affair 1990 한국어화 아이템 번역 파일 
+# James Bond 007 - The Stealth Affair 1990 아이템 목록 번역 파일(Korean Translation)
+# 설정 파일 버전 : 0.8 (2026.06.09)
+# 게임 데이터 폴더(ostealth/)에 배치
+# 수정 후 게임 재시작하면 적용됨
+# 제작자 : securityrimo
+# 도움주신분 : 
+# 형식: 원문(영어)\t번역문(한국어)	# 형식: 원문(영어)\t번역문(한국어)
+# ============================================================
+'Down' button	'아래' 버튼
+'Up' button	'위' 버튼
+0	0
+1	1
+2	2
+3	3
+A rock wall	암벽
+Agent Spyder	스파이더 요원
+Airline ticket	항공권
+American passport	미국 여권
+Armchair	안락의자
+Army boots	군화
+Ashtray	재떨이
+Authorized mission	승인된 미션
+Back door	뒷문
+Baggage	수하물
+Baggage carousel	수하물 컨베이어 벨트
+Bank	은행
+Bank clerk	은행원
+Bank entrance	은행 입구
+Bank teller	은행 창구 직원
+Bay window	돌출창
+Beach	해변
+Beam	빔/광선
+Bed	침대
+Bench	벤치
+Bicycle	자전거
+Bin	쓰레기통
+Blank stamp	백지 인장
+Bomb	폭탄
+Book	책
+Bottle	병
+Bracelet	팔찌
+Briefcase	서류 가방
+Buildings	건물들
+Button	버튼
+CD player	CD 플레이어
+Cage	케이지
+Calculator	계산기
+Camera	카메라
+Card	카드
+Card and key	카드와 열쇠
+Card reader	카드 판독기
+Case	케이스
+Chair	의자
+Change	잔돈
+Cigarette	담배
+Cigarette case	담배 케이스
+Cigarette paper	궐련지
+Clothes	옷
+Coin	동전
+Coin return slot	동전 반환구
+Coin slot	동전 투입구
+Coins	동전들
+Compact disc	컴팩트 디스크
+Computer	컴퓨터
+Control board	제어반
+Cord	코드 (또는 줄)
+Counter	카운터
+Currency	통화 (외환)
+Customer	고객
+Customs official	세관원
+Daisies	데이지 꽃들
+Daisy	데이지
+Deskpad	데스크 패드
+Door	문
+Down button	하행 버튼
+Dr Why	닥터 와이
+Drawer	서랍
+Elastic band	고무줄
+Electric cable	전기 케이블
+Electric plug	전기 플러그
+Electric razor	전기 면도기
+Electric socket	콘센트
+English passport	영국 여권
+Enter button	확인(Enter) 버튼
+Entrance	입구
+Envelope	봉투
+Exit door	출구
+False bottom	이중 바닥 (비밀 수납함)
+Fence	울타리
+Fingerprint	지문
+Fingerprint id	지문 인식기
+Fish	물고기
+Floor	바닥
+Florist	꽃집 주인
+Flowers	꽃
+Flush	변기 레버
+Fountain	분수
+Freezer	냉동고
+French passport	프랑스 여권
+Front door	앞문 (현관)
+Full glass	가득 찬 유리잔
+Fuse box	퓨즈 박스
+Garbage dump	쓰레기 처리장
+Garden	정원
+Gauge	계기판
+German passport	독일 여권
+Girl	소녀
+Glass	유리 (또는 유리잔)
+Green plant	녹색 식물
+Grill	그릴 (또는 창살)
+Ground	지면
+Guard	경비원
+Gun case	총기 케이스
+Gutter	배수구
+Hall door	홀 문
+Helicopter	헬리콥터
+Hotel	호텔
+Housekeeper	가정부 (관리인)
+Ink pad	인장 패드 (인듀)
+Inked stamp	잉크가 묻은 도장
+Inkwell	잉크병
+James	제임스
+Key	열쇠
+Laces	신발끈
+Lamp	램프
+Leather armchair	가죽 안락의자
+Library	서재 (도서관)
+Lifeboat	구명정
+Little Box	작은 상자
+Lock	잠금장치
+Lock combination	자물쇠 비밀번호
+Mailbox	우체통
+Man	남자
+Metal desk	금속 책상
+Mirror	거울
+Mission instructio	미션 지시서
+Napkin	나프킨
+Newspaper	신문
+Newspaper box	신문 가판대
+Note	쪽지
+Office	사무실
+Office door	사무실 문
+Officer	장교 (관리)
+Opening	구멍 (또는 통로)
+Otto	오토
+Palm leaves	야자수 잎
+Palm tree	야자수
+Passport falsifier	여권 위조기
+Pen	펜
+Pencil case	필통
+Pickaxe	곡괭이
+Piece of metal	금속 조각
+Pile of rocks	돌더미
+Plant	식물
+Porter	짐꾼
+Porthole	현창 (선실 창문)
+Power plant	발전소
+Q	Q (장비 보급관)
+Receptionist	접수원
+Red carnation	붉은 카네이션
+Red carnations	붉은 카네이션들
+Remote control	리모컨
+Revolutionary	혁명가
+Rock	바위
+Rock walls	암벽들
+Rope	로프
+Ropes	로프들
+Sacks of flour	밀가루 포대
+Safe	금고
+Safe door	금고 문
+Sea	바다
+Seaweed	해초
+Security door	보안문
+Shark	상어
+Shutter	셔터
+Sieve	이중 통제 출입구
+Sign	표지판 (또는 간판)
+Sink	싱크대 (세면대)
+Soldier	군인
+Spyder agent	스파이더 조직의 행동대원(요원)
+Stained glass door	스테인드글라스 문
+Stairs	계단
+Stamp	도장 (또는 우표)
+Statue	조각상
+Statue's arm	조각상의 팔
+Tap	수도꼭지
+Taxi	택시
+Telegram	전보
+Telephone	전화기
+Telephone booth	공중전화 박스
+Toilet	변기
+Toilet paper	화장지
+Tonio	토니오
+Trashcan	쓰레기통
+Travel agency	여행사
+Truck	트럭
+Tub	욕조 (또는 통)
+Tulip	튤립
+Tulips	튤립들
+Unused passport	미사용 여권
+Up button	상행 버튼
+Validation button	인증 버튼
+Ventilation hole	통풍구
+Video	비디오
+Wall	벽
+Watch	시계
+Welcome hostess	안내원
+Winch control	윈치 제어기
+Window	창문
+Woman & children	여인과 아이들
+Young man	젊은이
+Zodiac	조디악(고무 보트)
+clothes	옷
+magazine	잡지
