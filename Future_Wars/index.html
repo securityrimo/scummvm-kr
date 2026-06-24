@@ -668,7 +668,7 @@
 
         /* 릴리즈 로그 */
         .fw-release-row { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 8px; font-size: 12px; }
-        .fw-release-date { color: #4b5563; min-width: 70px; font-size: 11px; padding-top: 2px; flex-shrink: 0; }
+        .fw-release-date { color: #6b7280; min-width: 70px; font-size: 11px; padding-top: 2px; flex-shrink: 0; }
         .fw-release-ver {
             background: #1e2028;
             border: 1px solid #3a3d47;
@@ -681,7 +681,7 @@
             font-family: 'Share Tech Mono', monospace;
         }
         .fw-release-ver.current { border-color: var(--accent-color); color: #ffffff; }
-        .fw-release-desc { color: #9ca3af; font-size: 12px; line-height: 1.7; }
+        .fw-release-desc { color: #c9d1d9; font-size: 12px; line-height: 1.7; }
         .fw-release-desc.current { color: #ffffff; }
 
         /* 패치 상세 아코디언 */
@@ -713,8 +713,8 @@
             flex-shrink: 0;
         }
         .fw-patch-ver-badge.current { border-color: var(--accent-color); }
-        .fw-patch-date { color: #4b5563; font-size: 11px; flex-shrink: 0; }
-        .fw-patch-summary { color: #9ca3af; font-size: 12px; flex: 1; }
+        .fw-patch-date { color: #8b949e; font-size: 11px; flex-shrink: 0; }
+        .fw-patch-summary { color: #c9d1d9; font-size: 12px; flex: 1; }
         .fw-patch-arrow {
             color: #4b5563;
             font-size: 12px;
@@ -732,7 +732,7 @@
         .fw-patch-body ul { list-style: none; padding: 0; }
         .fw-patch-body li {
             font-size: 12px;
-            color: #9ca3af;
+            color: #c9d1d9;
             line-height: 1.8;
             padding-left: 14px;
             position: relative;
@@ -741,7 +741,7 @@
         .fw-patch-body .fw-sub-group { margin: 6px 0 2px; }
         .fw-patch-body .fw-sub-label {
             font-size: 11px;
-            color: #58a6ff;
+            color: #79c0ff;
             letter-spacing: 1px;
             margin-bottom: 2px;
             font-family: 'Share Tech Mono', monospace;
@@ -760,7 +760,7 @@
             border-left: 3px solid #30363d;
             margin: 6px 0;
             padding: 4px 10px;
-            color: #6b7280;
+            color: #c9d1d9;
             font-size: 11px;
             line-height: 1.7;
         }
@@ -2140,7 +2140,7 @@
                 <span class="fw-badge-version">v0.8.3</span>
                 <span style="font-size:11px;color:#4b5563;">26.06.23</span>
             </div>
-            <div class="fw-badge-author">제작: 리뮤(securityrimo) &nbsp;|&nbsp; 도움: 테스타티카, 메가스타</div>
+            <div class="fw-badge-author">제작: 리뮤(securityrimo) &nbsp;|&nbsp; 도움: 테스타티카, 메가스타, alamingu님, 한곰돌이님</div>
         </div>
 
         <!-- 진행 현황 -->
@@ -2161,13 +2161,17 @@
         <div class="fw-section">
             <div class="fw-section-title">// 공개 이력 로그</div>
             <div class="fw-section-body">
-                <div class="fw-release-row"><span class="fw-release-date">26.05 ~</span><span class="fw-release-ver">v0.1–0.4</span><span class="fw-release-desc">내부 테스트 (비공개)</span></div>
-                <div class="fw-release-row"><span class="fw-release-date">26.06.05</span><span class="fw-release-ver">v0.5</span><span class="fw-release-desc">최초 배포 — 텍스트 추출 및 <span class="fw-code">koreans.trs</span> 생성</span></div>
-                <div class="fw-release-row"><span class="fw-release-date">26.06.06</span><span class="fw-release-ver">v0.6</span><span class="fw-release-desc">가독성 패치 — 폰트 선명도 개선</span></div>
-                <div class="fw-release-row"><span class="fw-release-date">26.06.06</span><span class="fw-release-ver">v0.7</span><span class="fw-release-desc">번역 3차 보완 — 파일 오프셋 오류 수정</span></div>
-                <div class="fw-release-row"><span class="fw-release-date">26.06.09</span><span class="fw-release-ver">v0.8</span><span class="fw-release-desc">메뉴 한글화 + 아이템 번역 + 환경설정 시스템</span></div>
-                <div class="fw-release-row"><span class="fw-release-date">26.06.20</span><span class="fw-release-ver">v0.8.1</span><span class="fw-release-desc">번역 오류 수정 (메가스타님 제보)</span></div>
-                <div class="fw-release-row"><span class="fw-release-date">26.06.23</span><span class="fw-release-ver current">v0.8.3</span><span class="fw-release-desc current">현재 배포 버전 <span class="fw-blink">▮</span></span></div>
+                <div class="fw-release-row"><span class="fw-release-date" style="color:#6b7280">2026.05 ~</span><span class="fw-release-ver">v0.1–0.4</span><span class="fw-release-desc" style="color:#c9d1d9">내부 테스트 (비공개)</span></div>
+                <div class="fw-release-row"><span class="fw-release-date" style="color:#6b7280">2026.06.05</span><span class="fw-release-ver">v0.5</span><span class="fw-release-desc" style="color:#c9d1d9">최초 배포 — 텍스트 추출 및 <span class="fw-code">koreans.trs</span> 생성</span></div>
+                <div class="fw-release-row"><span class="fw-release-date" style="color:#6b7280">2026.06.06</span><span class="fw-release-ver">v0.6</span><span class="fw-release-desc" style="color:#c9d1d9">가독성 패치 — 폰트 선명도 개선</span></div>
+                <div class="fw-release-row"><span class="fw-release-date" style="color:#6b7280">2026.06.06</span><span class="fw-release-ver">v0.7</span><span class="fw-release-desc" style="color:#c9d1d9">번역 3차 보완 — 파일 오프셋 오류 수정</span></div>
+                <div class="fw-release-row"><span class="fw-release-date" style="color:#6b7280">2026.06.09</span><span class="fw-release-ver">v0.8</span><span class="fw-release-desc" style="color:#c9d1d9">메뉴 한글화 + 아이템 번역 + 환경설정 시스템 추가</span></div>
+                <div class="fw-release-row"><span class="fw-release-date" style="color:#6b7280">2026.06.xx</span><span class="fw-release-ver">v0.8</span><span class="fw-release-desc" style="color:#c9d1d9">번역 오류 수정 <span style="color:#8b949e">(테스타티카님 제보)</span></span></div>
+                <div class="fw-release-row"><span class="fw-release-date" style="color:#6b7280">2026.06.xx</span><span class="fw-release-ver">v0.8</span><span class="fw-release-desc" style="color:#c9d1d9">번역 오류 수정 <span style="color:#8b949e">(테스타티카님 제보)</span></span></div>
+                <div class="fw-release-row"><span class="fw-release-date" style="color:#6b7280">2026.06.xx</span><span class="fw-release-ver">v0.8</span><span class="fw-release-desc" style="color:#c9d1d9">번역 오류 수정 <span style="color:#8b949e">(테스타티카님 제보)</span></span></div>
+                <div class="fw-release-row"><span class="fw-release-date" style="color:#6b7280">2026.06.20</span><span class="fw-release-ver">v0.8.1</span><span class="fw-release-desc" style="color:#c9d1d9">번역 오류 수정 <span style="color:#8b949e">(메가스타님 제보)</span></span></div>
+                <div class="fw-release-row"><span class="fw-release-date" style="color:#6b7280">2026.06.22</span><span class="fw-release-ver">v0.8.2</span><span class="fw-release-desc" style="color:#c9d1d9">번역 오류 수정 <span style="color:#8b949e">(메가스타님 제보)</span></span></div>
+                <div class="fw-release-row"><span class="fw-release-date" style="color:#6b7280">2026.06.23</span><span class="fw-release-ver current">v0.8.3</span><span class="fw-release-desc current" style="color:#ffffff;font-weight:bold">CD음원 재생 문제 수정 <span style="color:#8b949e;font-weight:normal">(alamingu님, 한곰돌이님 제보)</span> &nbsp;<span class="fw-blink" style="color:#58a6ff">▮</span></span></div>
             </div>
         </div>
 
@@ -2175,22 +2179,58 @@
         <div class="fw-section">
             <div class="fw-section-title">// 패치 상세 내역</div>
             <div class="fw-section-body">
-
-                <!-- v0.8.1 -->
-                <div class="fw-patch-item">
+				
+				<!-- v0.8.3 -->
+                <div class="fw-patch-item open">
                     <div class="fw-patch-header" onclick="togglePatch(this)">
-                        <span class="fw-patch-ver-badge current">v0.8.1</span>
-                        <span class="fw-patch-date">26.06.20</span>
-                        <span class="fw-patch-summary">번역 파일 오류 수정</span>
+                        <span class="fw-patch-ver-badge current">v0.8.3</span>
+                        <span class="fw-patch-date" style="color:#8b949e">2026.06.23</span>
+                        <span class="fw-patch-summary" style="color:#ffffff;font-weight:bold">CD음원 재생 문제 수정 — alamingu님, 한곰돌이님 제보</span>
                         <span class="fw-patch-arrow">▶</span>
                     </div>
                     <div class="fw-patch-body">
                         <ul>
-                            <li>메가스타님 제보로 번역 파일 오류 수정</li>
+                            <li style="color:#e6edf3">CD음원 <strong style="color:#ffffff">미래 전쟁</strong> 음악이 나오지 않는 문제 수정</li>
+                            <li style="color:#e6edf3">빌드 시 <span class="fw-code">flac</span> 옵션 누락으로 인한 문제 — CD음원 지원되도록 재빌드</li>
+                        </ul>
+                    </div>
+                </div>
+				
+				<!-- v0.8.2 -->
+                <div class="fw-patch-item">
+                    <div class="fw-patch-header" onclick="togglePatch(this)">
+                        <span class="fw-patch-ver-badge">v0.8.2</span>
+                        <span class="fw-patch-date" style="color:#8b949e">2026.06.22</span>
+                        <span class="fw-patch-summary" style="color:#c9d1d9">번역 파일 오류 수정 — 메가스타님 제보</span>
+                        <span class="fw-patch-arrow">▶</span>
+                    </div>
+                    <div class="fw-patch-body">
+                        <ul>
+                            <li style="color:#e6edf3"><strong style="color:#ffffff">메가스타님</strong> 제보로 번역 파일 오류 수정</li>
                         </ul>
                         <div class="fw-quote">
-                            <span style="color:#6b7280;">원문:</span> There is a small ribbon cartridge in the typewriter. On examining it, you notice that a series of digits has been typed... 40315 !<br>
-                            <span class="fw-quote-arrow">→</span> 타자기 안에 작은 리본 카트리지가 있습니다. 조사해 보니 일련의 숫자가 타이핑되어 있는 것을 발견합니다... 40315 !
+                            <span style="color:#8b949e;">원문:</span> HIGH COMMAND HAS ALSO INFORMED US THAT THE SCORZUUM EXPLODED 65 ...<br>
+                            <span class="fw-quote-arrow">→</span> <span style="color:#c9d1d9">평의회 사령부의 공식 발표에 따르면, 크루혼의 시한 폭탄 스코르줌은 6500만 년 전의 과거 백악기 ...</span>
+                        </div>
+                    </div>
+                </div>
+				
+				
+                <!-- v0.8.1 -->
+                <div class="fw-patch-item">
+                    <div class="fw-patch-header" onclick="togglePatch(this)">
+                        <span class="fw-patch-ver-badge">v0.8.1</span>
+                        <span class="fw-patch-date" style="color:#8b949e">2026.06.20</span>
+                        <span class="fw-patch-summary" style="color:#c9d1d9">번역 파일 오류 수정 — 메가스타님 제보</span>
+                        <span class="fw-patch-arrow">▶</span>
+                    </div>
+                    <div class="fw-patch-body">
+                        <ul>
+                            <li style="color:#e6edf3"><strong style="color:#ffffff">메가스타님</strong> 제보로 번역 파일 오류 수정</li>
+                        </ul>
+                        <div class="fw-quote">
+                            <span style="color:#8b949e;">원문:</span> There is a small ribbon cartridge in the typewriter...<br>
+                            <span class="fw-quote-arrow">→</span> <span style="color:#c9d1d9">타자기 안에 작은 리본 카트리지가 있습니다...</span>
                         </div>
                     </div>
                 </div>
@@ -2199,40 +2239,44 @@
                 <div class="fw-patch-item">
                     <div class="fw-patch-header" onclick="togglePatch(this)">
                         <span class="fw-patch-ver-badge">v0.8</span>
-                        <span class="fw-patch-date">26.06.09</span>
-                        <span class="fw-patch-summary">메뉴 한글화 · 아이템 번역 · 환경설정 시스템</span>
+                        <span class="fw-patch-date" style="color:#8b949e">2026.06.09</span>
+                        <span class="fw-patch-summary" style="color:#c9d1d9">메뉴 한글화 · 아이템 번역 · 환경설정 시스템 / 번역 검수 (테스타티카님)</span>
                         <span class="fw-patch-arrow">▶</span>
                     </div>
                     <div class="fw-patch-body">
                         <div class="fw-sub-group"><div class="fw-sub-label">[ 메뉴 한글화 및 환경 설정 ]</div>
                         <ul>
-                            <li>액션 메뉴 한글화 및 영어 메뉴 환경 설정 선택 지원</li>
-                            <li><span class="fw-code">SelectionMenu</span> 공통: 메시지 박스 배경색 · 폰트 색상 환경 설정 지원</li>
-                            <li><span class="fw-code">otherMessages</span> / <span class="fw-code">failureMessages</span> / 하단 메시지 창 색상 환경 설정 지원</li>
-                            <li><span class="fw-code">koreans.ini</span> 환경 설정 파일 업데이트</li>
+                            <li style="color:#e6edf3">액션 메뉴 한글화 및 영어 메뉴 환경 설정 선택 지원</li>
+                            <li style="color:#e6edf3"><span class="fw-code">SelectionMenu</span> 공통: 메시지 박스 배경색 · 폰트 색상 환경 설정 지원</li>
+                            <li style="color:#e6edf3"><span class="fw-code">otherMessages</span> / <span class="fw-code">failureMessages</span> / 하단 메시지 창 색상 환경 설정 지원</li>
+                            <li style="color:#e6edf3"><span class="fw-code">koreans.ini</span> 환경 설정 파일 업데이트</li>
                         </ul></div>
                         <div class="fw-sub-group"><div class="fw-sub-label">[ 아이템 번역 ]</div>
                         <ul>
-                            <li>아이템 텍스트 데이터 추출 및 한글 번역 (2차 수정)</li>
-                            <li>한글화 아이템 번역 파일 메모리 로딩 + 외부 TTF 출력 지원</li>
+                            <li style="color:#e6edf3">아이템 텍스트 데이터 추출 및 한글 번역 (2차 수정)</li>
+                            <li style="color:#e6edf3">한글화 아이템 번역 파일 메모리 로딩 + 외부 TTF 출력 지원</li>
                         </ul></div>
                         <div class="fw-sub-group"><div class="fw-sub-label">[ 하단 메시지창 개선 ]</div>
                         <ul>
-                            <li>영어식 문장 출력 방식 → 한글화에 맞게 개선</li>
+                            <li style="color:#e6edf3">영어식 문장 출력 방식 → 한글화에 맞게 개선</li>
                         </ul></div>
                         <div class="fw-sub-group"><div class="fw-sub-label">[ 미번역 파일 로그 개선 ]</div>
                         <ul>
-                            <li>미번역 항목 자동 감지 시 환경 설정 지정 파일명으로 적재</li>
-                            <li>ScummVM 종료 시점에 <span class="fw-code">년월일시분_[설정파일명].txt</span> 자동 생성</li>
+                            <li style="color:#e6edf3">미번역 항목 자동 감지 시 환경 설정 지정 파일명으로 적재</li>
+                            <li style="color:#e6edf3">ScummVM 종료 시점에 <span class="fw-code">년월일시분_[설정파일명].txt</span> 자동 생성</li>
                         </ul></div>
                         <div class="fw-sub-group"><div class="fw-sub-label">[ 한글 출력 처리 개선 ]</div>
                         <ul>
-                            <li><span class="fw-code">||</span> 기호 포함 문구의 줄넘김 처리를 원본과 동일하게 개선</li>
+                            <li style="color:#e6edf3"><span class="fw-code">||</span> 기호 포함 문구의 줄넘김 처리를 원본과 동일하게 개선</li>
                         </ul></div>
                         <div class="fw-sub-group"><div class="fw-sub-label">[ ScummVM 대문 수정 ]</div>
                         <ul>
-                            <li>미래 전쟁 / 007 제임스 본드: 더 스텔스 어페어 추가 시 한글 제목 표기</li>
-                            <li>전용 엔진 파일명 변경: <span class="fw-code">scummvm_cine_kor_0.8.exe</span></li>
+                            <li style="color:#e6edf3">미래 전쟁 / 007 제임스 본드: 더 스텔스 어페어 추가 시 한글 제목 표기</li>
+                            <li style="color:#e6edf3">전용 엔진 파일명 변경: <span class="fw-code">scummvm_cine_kor_0.8.exe</span></li>
+                        </ul></div>
+                        <div class="fw-sub-group"><div class="fw-sub-label">[ 번역 검수 (배포 이후) ]</div>
+                        <ul>
+                            <li style="color:#e6edf3"><strong style="color:#ffffff">테스타티카님</strong>이 게임 플레이 끝까지 직접 검수하시며 번역 파일 오류 다수 수정 제보</li>
                         </ul></div>
                     </div>
                 </div>
@@ -2241,16 +2285,16 @@
                 <div class="fw-patch-item">
                     <div class="fw-patch-header" onclick="togglePatch(this)">
                         <span class="fw-patch-ver-badge">v0.7</span>
-                        <span class="fw-patch-date">26.06.06</span>
-                        <span class="fw-patch-summary">대사/나레이션/스토리 번역 3차 보완</span>
+                        <span class="fw-patch-date" style="color:#8b949e">2026.06.06</span>
+                        <span class="fw-patch-summary" style="color:#c9d1d9">대사/나레이션/스토리 번역 3차 보완</span>
                         <span class="fw-patch-arrow">▶</span>
                     </div>
                     <div class="fw-patch-body">
                         <ul>
-                            <li>대사/나레이션/스토리 한글 번역 3차 수정</li>
-                            <li>파일 오프셋 오류로 누락된 대사 추출 보완</li>
-                            <li>마침표 · 따옴표 · 공백 소실로 인한 번역 매칭 오류 수정</li>
-                            <li>폰트 가독성 개선</li>
+                            <li style="color:#e6edf3">대사/나레이션/스토리 한글 번역 3차 수정</li>
+                            <li style="color:#e6edf3">파일 오프셋 오류로 누락된 대사 추출 보완</li>
+                            <li style="color:#e6edf3">마침표 · 따옴표 · 공백 소실로 인한 번역 매칭 오류 수정</li>
+                            <li style="color:#e6edf3">폰트 가독성 개선</li>
                         </ul>
                     </div>
                 </div>
@@ -2259,15 +2303,15 @@
                 <div class="fw-patch-item">
                     <div class="fw-patch-header" onclick="togglePatch(this)">
                         <span class="fw-patch-ver-badge">v0.6</span>
-                        <span class="fw-patch-date">26.06.06</span>
-                        <span class="fw-patch-summary">가독성 패치 — 폰트 선명도 개선</span>
+                        <span class="fw-patch-date" style="color:#8b949e">2026.06.06</span>
+                        <span class="fw-patch-summary" style="color:#c9d1d9">가독성 패치 — 폰트 선명도 개선</span>
                         <span class="fw-patch-arrow">▶</span>
                     </div>
                     <div class="fw-patch-body">
                         <ul>
-                            <li>한글 출력 시 뿌옇게 보이는 현상 가독성 패치</li>
-                            <li>환경 설정으로 가독성 옵션 조정 가능하도록 추가</li>
-                            <li><span class="fw-code">koreans.trs</span> 번역 파일 재배포</li>
+                            <li style="color:#e6edf3">한글 출력 시 뿌옇게 보이는 현상 가독성 패치</li>
+                            <li style="color:#e6edf3">환경 설정으로 가독성 옵션 조정 가능하도록 추가</li>
+                            <li style="color:#e6edf3"><span class="fw-code">koreans.trs</span> 번역 파일 재배포</li>
                         </ul>
                     </div>
                 </div>
@@ -2276,14 +2320,14 @@
                 <div class="fw-patch-item">
                     <div class="fw-patch-header" onclick="togglePatch(this)">
                         <span class="fw-patch-ver-badge">v0.5</span>
-                        <span class="fw-patch-date">26.06.05</span>
-                        <span class="fw-patch-summary">최초 배포 — 텍스트 추출 및 번역 파일 생성</span>
+                        <span class="fw-patch-date" style="color:#8b949e">2026.06.05</span>
+                        <span class="fw-patch-summary" style="color:#c9d1d9">최초 배포 — 텍스트 추출 및 번역 파일 생성</span>
                         <span class="fw-patch-arrow">▶</span>
                     </div>
                     <div class="fw-patch-body">
                         <ul>
-                            <li>Future Wars 게임 내 텍스트 데이터 추출 (<span class="fw-code">DATA01</span> ~ <span class="fw-code">DATA04</span>)</li>
-                            <li>추출 텍스트를 <span class="fw-code">원문	번역문</span> 구조로 <span class="fw-code">koreans.trs</span> 병합</li>
+                            <li style="color:#e6edf3">Future Wars 게임 내 텍스트 데이터 추출 (<span class="fw-code">DATA01</span> ~ <span class="fw-code">DATA04</span>)</li>
+                            <li style="color:#e6edf3">추출 텍스트를 <span class="fw-code">원문	번역문</span> 구조로 <span class="fw-code">koreans.trs</span> 병합</li>
                         </ul>
                     </div>
                 </div>
@@ -2292,15 +2336,15 @@
                 <div class="fw-patch-item">
                     <div class="fw-patch-header" onclick="togglePatch(this)">
                         <span class="fw-patch-ver-badge">v0.1–v0.4</span>
-                        <span class="fw-patch-date">2026.05</span>
-                        <span class="fw-patch-summary">내부 테스트 (비공개)</span>
+                        <span class="fw-patch-date" style="color:#8b949e">2026.05</span>
+                        <span class="fw-patch-summary" style="color:#c9d1d9">내부 테스트 (비공개)</span>
                         <span class="fw-patch-arrow">▶</span>
                     </div>
                     <div class="fw-patch-body">
                         <ul>
-                            <li><span class="fw-code">british-choi/scummvm</span> 포크의 Cine 엔진에 한글 TTF 출력 적용</li>
-                            <li>한글 처리 로직 및 텍스트 추출 파일 테스트</li>
-                            <li>외부 한글 TTF 파일 로딩 검증</li>
+                            <li style="color:#e6edf3"><span class="fw-code">british-choi/scummvm</span> 포크의 Cine 엔진에 한글 TTF 출력 적용</li>
+                            <li style="color:#e6edf3">한글 처리 로직 및 텍스트 추출 파일 테스트</li>
+                            <li style="color:#e6edf3">외부 한글 TTF 파일 로딩 검증</li>
                         </ul>
                     </div>
                 </div>
