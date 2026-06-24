@@ -1,86 +1,321 @@
-게임명 : Future Wars (미래 전쟁) - 한국어화 
-한글화 제작자 : 리뮤(securityrimo) 
-도움주신분 : 테스타티카, 메가스타 
-플랫폼 : SCUMMVM 
-장르 : 어드벤쳐 
-패치버전 : v0.8.3 (26.06.23)
 
-[한글화 현황]
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Noto+Sans+KR:wght@400;700&display=swap');
+  
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  .fw-wrap {
+    background: #0a0f0a;
+    color: #00cc44;
+    font-family: 'Share Tech Mono', monospace;
+    padding: 0;
+    min-height: 100vh;
+  }
+  
+  .scanline-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.08) 2px,
+      rgba(0,0,0,0.08) 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .content { position: relative; z-index: 1; padding: 2rem 1.5rem; max-width: 700px; margin: 0 auto; }
+  
+  .header-terminal {
+    border: 1px solid #00cc44;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .header-terminal::before {
+    content: "TERMINAL v2.31 // CINE ENGINE KOR BUILD";
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    background: #0a0f0a;
+    padding: 0 8px;
+    font-size: 11px;
+    color: #009933;
+    letter-spacing: 1px;
+  }
+  
+  .game-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #00ff55;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px rgba(0,255,85,0.4);
+    line-height: 1.3;
+  }
+  .game-title-en {
+    font-size: 13px;
+    color: #009933;
+    margin-top: 4px;
+    letter-spacing: 3px;
+  }
+  .badge-version {
+    display: inline-block;
+    background: #003311;
+    border: 1px solid #00cc44;
+    color: #00ff55;
+    font-size: 11px;
+    padding: 3px 10px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+  }
+  .badge-author {
+    font-size: 12px;
+    color: #009933;
+    margin-top: 6px;
+  }
 
-나레이션/대사/스토리 : 99.9% 번역 완료
-아이템 이름 : 99.9% 번역 완료
-액센 메뉴 : 100%
-시스템 메뉴 : 100%
-실패메시지 : 100%
-기타 메시지 : 100%
-scummvm 게임 타이틀 : 100%
-[한글화 공개일] 2026. 05 ~ (0.1 ~ 0.4 내부 한글화 테스트, 비공개) 2026. 06. 05. (0.5버전 배포) 2026. 06. 06 (0.6버전 배포) 2026. 06. 06 (0.7버전 배포) 2026. 06. 09. (0.8버전 배포) 2026. 06. 23. (0.8.3버전 배포)
+  .section {
+    border: 1px solid #004d18;
+    margin-bottom: 1.2rem;
+    position: relative;
+  }
+  .section-title {
+    background: #001a0a;
+    border-bottom: 1px solid #004d18;
+    padding: 7px 14px;
+    font-size: 11px;
+    color: #009933;
+    letter-spacing: 2px;
+  }
+  .section-body { padding: 14px; }
 
-[패치 내역 - 배포일] Future Wars (ScummVM) 한글화 작업 요약 v0.8.1 (26.06.20)
+  .progress-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 13px;
+  }
+  .progress-label {
+    color: #00aa33;
+    min-width: 140px;
+    font-size: 12px;
+  }
+  .progress-track {
+    flex: 1;
+    height: 6px;
+    background: #001a09;
+    border: 1px solid #004d18;
+    position: relative;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: #00cc44;
+    animation: progressLoad 1.2s ease-out forwards;
+    width: 0;
+  }
+  .progress-pct {
+    color: #00ff55;
+    font-size: 12px;
+    min-width: 40px;
+    text-align: right;
+  }
+  @keyframes progressLoad {
+    to { width: var(--pct); }
+  }
 
-메가스타님 제보로 번역파일 오류 수정 (수정사항 아래 번역문) There is a small ribbon cartridge in the typewriter. On examining it, you notice that a series of digits has been typed... 40315 ! 타자기 안에 작은 리본 카트리지가 있습니다. 조사해 보니 일련의 숫자가 타이핑되어 있는 것을 발견합니다... 40315 !
-v0.8 메뉴 한글화 및 환경 설정 기능 추가 (외부 한글 TTF 로딩 및 한글 출력 되도록 소스 수정)
+  .log-list {
+    list-style: none;
+    font-size: 12px;
+    line-height: 1.9;
+    color: #009933;
+  }
+  .log-list li::before {
+    content: "> ";
+    color: #00ff55;
+  }
+  .log-list li span.hl {
+    color: #00ff55;
+  }
 
-액션 메뉴 한글화 및 영어 메뉴 환경 설정으로 사용 가능하도록 추가
-액션/시스템/확인 메뉴 (SelectionMenu 공통) : 메시지 박스 배경색, 폰트 색상 환경 설정으로 사용 가능하도록 추가
-시스템 알림 메시지 (otherMessages) : 메시지 박스 배경색, 폰트 색상 환경 설정으로 사용 가능하도록 추가
-행동 실패 메시지 (failureMessages) : 메시지 박스 배경색, 폰트 색상 환경 설정으로 사용 가능하도록 추가
-하단 메시지 창 : 메시지 박스 배경색, 폰트 색상 환경 설정으로 사용 가능하도록 추가
-환경설정 파일(koreans.ini) 업데이트
-게임 번역되지 않은 아이템 데이터 추출 (외부 한글 TTF 로딩 및 한글 출력 되도록 소스 수정)
+  .release-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 6px;
+    font-size: 12px;
+  }
+  .release-date {
+    color: #006622;
+    min-width: 100px;
+    font-size: 11px;
+    padding-top: 1px;
+  }
+  .release-ver {
+    background: #001a09;
+    border: 1px solid #00aa33;
+    color: #00ff55;
+    padding: 1px 8px;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+  .release-desc {
+    color: #009933;
+    font-size: 12px;
+    line-height: 1.6;
+  }
 
-아이템 텍스트 데이터 추출 및 게임상 스토리에 맞게 한글 번역 (2차 수정)
-한글화된 아이템 번역 파일 메모리 로딩 및 외부 한글 TTF 로딩하여 한글 출력되도록 추가
-하단 메시지창 출력 메시지 개선 (문장 출력 소스 수정)
+  .file-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .file-card {
+    background: #001a09;
+    border: 1px solid #004d18;
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+  .file-name {
+    color: #00ff55;
+    font-size: 13px;
+    margin-bottom: 3px;
+  }
+  .file-desc {
+    color: #006622;
+    font-size: 11px;
+    line-height: 1.5;
+  }
 
-한글화 후 하단 메시지창 출력시 영어식 문장 출력 방식을 한글화에 맞게 출력 방식 개선
-미번역 파일 기록 방식 수정
+  .pro-con-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .pro-block, .con-block {
+    padding: 10px 12px;
+    font-size: 12px;
+    line-height: 1.8;
+    border: 1px solid;
+  }
+  .pro-block {
+    border-color: #004d18;
+    background: #001a09;
+    color: #009933;
+  }
+  .con-block {
+    border-color: #333300;
+    background: #0f0f00;
+    color: #666633;
+  }
+  .pro-block .block-label { color: #00ff55; font-size: 11px; letter-spacing: 1px; margin-bottom: 6px; }
+  .con-block .block-label { color: #aaaa00; font-size: 11px; letter-spacing: 1px; margin-bottom: 6px; }
+  .pro-block li::before { content: "[+] "; color: #00ff55; }
+  .con-block li::before { content: "[-] "; color: #aaaa00; }
+  .pro-block ul, .con-block ul { list-style: none; }
 
-비번역 되거거 한글 번역이 없다고 인식 할 경우 환경 설정에 기술된 파일명으로 내용이 적재되도록 기능 추가
-파일 생성시 scummvm 종료 시점에 메모리에 적재한 미번역 내용을 파일에 년월일시분_[환경 설정파일 이름].txt 파일로 생성되도록 개선
-한글 출력 메시지 처리 개선
+  .blink { animation: blink 1.2s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
 
-원문에서 추출된 텍스트 중 "||" 기호가 들어간 한글 문구 처리를 원본 게임과 동일하게 처리 되도록 개선(줄넘김 처리)
-scummvm 대문 수정
+  .footer-bar {
+    border-top: 1px solid #004d18;
+    padding: 10px 14px;
+    font-size: 11px;
+    color: #004d18;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 1px;
+    margin-top: 1.5rem;
+  }
+  .cursor { display: inline-block; width: 8px; height: 14px; background: #00cc44; vertical-align: -2px; }
+</style>
 
-미래 전쟁(Future Wars), 007 제임스 본드: 더 스텔스 어페어(Operation Stealth) 게임 추가 시 한글화 제목 표기되도록 수정
-​scummvm cine 전용 엔진 파일명 변경 (scummvm_cine_kor_0.8.exe)
+<div class="fw-wrap">
+  <div class="scanline-overlay"></div>
+  <div class="content">
 
-미래 전쟁(Future Wars), 007 제임스 본드: 더 스텔스 어페어(Operation Stealth) 게임 한긇화 전용으로 사용할 예정으로 파일명 변경
-v0.7 대사/나레이션/스토리 텍스트 데이터 추출, 한글 번역 보완
+    <div class="header-terminal">
+      <div class="game-title">미래 전쟁 (Future Wars)<br>한국어화 패치</div>
+      <div class="game-title-en">KOREAN LOCALIZATION PROJECT</div>
+      <div style="margin-top:10px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+        <span class="badge-version">v0.8.3</span>
+        <span style="font-size:11px; color:#006622;">26.06.23</span>
+      </div>
+      <div class="badge-author">제작: 리뮤(securityrimo) &nbsp;|&nbsp; 도움: 테스타티카, 메가스타</div>
+    </div>
 
-대사/나레이션/스토리 게임상 스토리에 맞게 한글 번역 (3차 수정)
-대사/나레이션/스토리 텍스트 데이터 추출 과정에서 파일 오프셋 값 오류로 일부 대사/나레이션 추출 누락 확인
-추출된 텍스트를 한글 번역하는 과정에서 마침표(.), 따옴표("), 공백( ) 등이 소실되어 한글 번역 매칭 오류 확인
-폰트 가독성 개선
-v0.6 가독성 패치
+    <div class="section">
+      <div class="section-title">// 한글화 진행 현황</div>
+      <div class="section-body">
+        <div class="progress-row"><span class="progress-label">나레이션/대사/스토리</span><div class="progress-track"><div class="progress-fill" style="--pct:99.9%"></div></div><span class="progress-pct">99.9%</span></div>
+        <div class="progress-row"><span class="progress-label">아이템 이름</span><div class="progress-track"><div class="progress-fill" style="--pct:99.9%"></div></div><span class="progress-pct">99.9%</span></div>
+        <div class="progress-row"><span class="progress-label">액션 메뉴</span><div class="progress-track"><div class="progress-fill" style="--pct:100%"></div></div><span class="progress-pct">100%</span></div>
+        <div class="progress-row"><span class="progress-label">시스템 메뉴</span><div class="progress-track"><div class="progress-fill" style="--pct:100%"></div></div><span class="progress-pct">100%</span></div>
+        <div class="progress-row"><span class="progress-label">실패메시지</span><div class="progress-track"><div class="progress-fill" style="--pct:100%"></div></div><span class="progress-pct">100%</span></div>
+        <div class="progress-row"><span class="progress-label">기타 메시지</span><div class="progress-track"><div class="progress-fill" style="--pct:100%"></div></div><span class="progress-pct">100%</span></div>
+        <div class="progress-row"><span class="progress-label">게임 타이틀</span><div class="progress-track"><div class="progress-fill" style="--pct:100%"></div></div><span class="progress-pct">100%</span></div>
+      </div>
+    </div>
 
-한글 출력시 글자가 뿌옇게 나오거나 글자 식별이 어려워 가독성 패치 및 환경 설정으로 사용 가능하도록 추가
-대사/나레이션/스토리한글 번역 파일(koreans.trs) 재배포
-v0.5 대사/나레이션/스토리 텍스트 데이터 추출
+    <div class="section">
+      <div class="section-title">// 공개 이력 로그</div>
+      <div class="section-body">
+        <div class="release-row"><span class="release-date">26.05 ~</span><span class="release-ver">v0.1–0.4</span><span class="release-desc">내부 테스트 (비공개)</span></div>
+        <div class="release-row"><span class="release-date">26.06.05</span><span class="release-ver">v0.5</span><span class="release-desc">최초 배포 — 텍스트 추출 및 koreans.trs 생성</span></div>
+        <div class="release-row"><span class="release-date">26.06.06</span><span class="release-ver">v0.6</span><span class="release-desc">가독성 패치 — 폰트 선명도 개선</span></div>
+        <div class="release-row"><span class="release-date">26.06.06</span><span class="release-ver">v0.7</span><span class="release-desc">번역 3차 보완 — 오프셋 오류 수정</span></div>
+        <div class="release-row"><span class="release-date">26.06.09</span><span class="release-ver">v0.8</span><span class="release-desc">메뉴 한글화 + 아이템 + 환경설정 시스템</span></div>
+        <div class="release-row"><span class="release-date">26.06.20</span><span class="release-ver">v0.8.1</span><span class="release-desc">번역 오류 수정 (메가스타님 제보)</span></div>
+        <div class="release-row"><span class="release-date">26.06.23</span><span class="release-ver" style="border-color:#00ff55; color:#00ff55;">v0.8.3</span><span class="release-desc" style="color:#00ff55;">현재 배포 버전 <span class="blink">▮</span></span></div>
+      </div>
+    </div>
 
-한글화를 위한 Future wars(미래전쟁) 게임내 텍스트 데이터 추출(DATA01 ~ DATA04 파일)
-추출한 게임내 텍스트를 번역기를 통해 "원문" "번역문" 구조로 koreans.trs로 병합
-v0.1~ v0.4 SCUMMVM를 통해 한글처리를 위한 로더로 활용
+    <div class="section">
+      <div class="section-title">// 필수 파일 목록</div>
+      <div class="section-body">
+        <div class="file-grid">
+          <div class="file-card"><div class="file-name">korean.ini</div><div class="file-desc">환경 설정 파일<br>색상/폰트/크기 조정</div></div>
+          <div class="file-card"><div class="file-name">Koreans.trs</div><div class="file-desc">대사/나레이션/스토리<br>원문↔번역 매핑</div></div>
+          <div class="file-card"><div class="file-name">KoreanItems.trs</div><div class="file-desc">아이템 이름<br>원문↔번역 매핑</div></div>
+          <div class="file-card"><div class="file-name">Galmuri9.ttf</div><div class="file-desc">한글 출력 TTF 폰트<br>전체 UI 공통 사용</div></div>
+        </div>
+        <div style="margin-top:10px; font-size:11px; color:#004d18; border-top:1px solid #002a0e; padding-top:8px;">
+          > SCUMMVM 전용 빌드 사용 필수: scummvm_cine_kor_0.8.exe<br>
+          > 한글화 파일 미적용 시 → 영어 원본으로 동작
+        </div>
+      </div>
+    </div>
 
-british-choi/scummvm 포크의 cine 엔진에 한글 번역과 TTF 폰트 출력을 적용 미래전쟁 한글화를 위핸 한글 처리 및 한글화에 필요한 텍스트 파일 추출, 외부 한글 TTF 파일 로딩 테스트 미래 전쟁(Future Wars) 한국어화 수정한 소스 파일 (AI를 이용해 정리) 미래 전쟁(Future Wars) 한국어화 처리 로직
-​미래전쟁 게임 한글화 장점 및 단점 장점
+    <div class="section">
+      <div class="section-title">// 장점 / 단점 분석</div>
+      <div class="section-body">
+        <div class="pro-con-grid">
+          <div class="pro-block">
+            <div class="block-label">ADVANTAGES</div>
+            <ul>
+              <li>원본 스타일 100% 유지</li>
+              <li>번역 수정 즉시 반영</li>
+              <li>미번역 자동 로그 생성</li>
+              <li>색상/폰트 환경설정 가능</li>
+            </ul>
+          </div>
+          <div class="con-block">
+            <div class="block-label">LIMITATIONS</div>
+            <ul>
+              <li>전용 ScummVM 빌드 필요</li>
+              <li>필수 파일 4개 관리 필요</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
-최대한 원본의 스타일을 유지
-대사/나레이션/스토리(koreans.trs)의 번역을 반영하면 즉시 게임내 번역 반영 (재실행 필요)
-아이템(koreanItems.trs)의 번역을 반영하면 즉시 게임내 번역 반영 (재실행 필요)
-미번역된 사항을 파일로 생성되어 언제든지 번역 반영 가능
-환경 설정을 통해 글씨 크기, 외부 한글 폰트 적용, 메시지 박스 크기, 메시지 창 색상 조정이 가능하다는 점.
-단점
-
-"미래 전쟁/007 제임스 본드: 더 스텔스 어페어" 전용 SCUMMVM 버전을 사용하여야 함.
-한글화 적용 필수 파일 4개 (게임 폴더) - 현재 환경 설정 파일 기준
-
-korean.ini — 미래 전쟁용 환경 설정 파일(v0.8)
-Koreans.trs — 대사/나레이션/스토리 원문(영어)\t번역(한글) 형식의 번역 파일(v0.8)
-KoreanItems.trs — 아이템 원문(영어)\t번역(한글) 형식의 번역 파일(v0.8)
-Galmuri9.ttf — 전체 한글화 적용을 위한 기본 TTF 폰트 (환경설정 셋팅)
-Galmuri9.ttf — UI 메뉴 (액션/시스템/확인 메뉴 (SelectionMenu 공통) , 시스템 알림 메시지 (otherMessages) , 행동 실패 메시지 (failureMessages) , 하단 메시지 창 폰트를 별도로 지정 하였습니다. 전체 폰트로 적용 가능
-최대한 환경 설정에서 해당 게임을 변신? 시킬수 있도록 기능을 많이 넣었습니다 원판 처럼 하실 수 있고 좀 색다르게 조정하여 하실 수 있습니다. 일명 미래 전쟁 플러스 버전 이라고 생각하시면 됩니다 원판 게임 내용은 100% 유지입니다.
-
-원본 게임은 제공하지 않으며, 추가 파일과 "미래 전쟁/007 제임스 본드: 더 스텔스 어페어" 전용 SCUMMVM 빌드 버전을 배포합니다. 참고로 "007 제임스 본드: 더 스텔스 어페어" 한국어화에 필요한 파일은 따로 배포하도록 하겠습니다. 해당 엔진으로 한국어에 필요한 파일 없을 경우 영어판(원본)으로 동작하도록 되어 있습니다 참고하시기 바랍니다.
+    <div class="footer-bar">
+      <span>PLATFORM: SCUMMVM // CINE ENGINE</span>
+      <span>GENRE: ADVENTURE <span class="blink">_</span></span>
+    </div>
+  </div>
+</div>
