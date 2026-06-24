@@ -2,7 +2,7 @@
 
 > Platform: ScummVM | Genre: Adventure | Patch: **v0.8.3** (26.06.25)
 
-**제작:** 리뮤(securityrimo) &nbsp;|&nbsp; **도움:** 테스타티카, 메가스타
+**제작:** 리뮤(securityrimo) &nbsp;|&nbsp; **도움:** 테스타티카, 메가스타, alamingu님, 한곰돌이님
 
 ---
 
