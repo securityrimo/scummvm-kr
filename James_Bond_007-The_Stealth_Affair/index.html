@@ -1803,11 +1803,65 @@
     })();
 
     /* ════════ 방명록 ════════ */
-    const GB_KEY = 'stealth_gb_entries';
+    const JSONBIN_API_KEY = 'YOUR_API_KEY_HERE';  // ← 여기에 API 키 입력
+    const JSONBIN_BIN_ID  = '$2a$10$5NJmcdoFsbsXSjVNbn7Q2.cTIHVjD7Wk8WDuwTGqTSLH0Hv6Yhb4y';                   // ← 첫 실행 후 자동 저장됨 (또는 직접 입력)
+    const JSONBIN_META_KEY = 'stealth_gb_bin_id';
     let pendingFiles = [];
 
-    function loadEntries(){ try{ return JSON.parse(localStorage.getItem(GB_KEY)||'[]'); }catch(e){ return []; } }
-    function saveEntries(arr){ try{ localStorage.setItem(GB_KEY, JSON.stringify(arr)); }catch(e){} }
+    function getBinId(){
+        return JSONBIN_BIN_ID || localStorage.getItem(JSONBIN_META_KEY) || '';
+    }
+    function saveBinId(id){
+        localStorage.setItem(JSONBIN_META_KEY, id);
+    }
+
+    async function loadEntries(){
+        const binId = getBinId();
+        if(!binId) return [];
+        try {
+            const res = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
+                headers: { 'X-Master-Key': JSONBIN_API_KEY }
+            });
+            if(!res.ok) return [];
+            const data = await res.json();
+            return data.record || [];
+        } catch(e){ return []; }
+    }
+
+    async function saveEntries(arr){
+        const binId = getBinId();
+        if(!binId){
+            // 처음: 새 bin 생성
+            try {
+                const res = await fetch('https://api.jsonbin.io/v3/b', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Master-Key': JSONBIN_API_KEY,
+                        'X-Bin-Name': 'stealth-guestbook',
+                        'X-Bin-Private': 'true'
+                    },
+                    body: JSON.stringify(arr)
+                });
+                const data = await res.json();
+                if(data.metadata && data.metadata.id){
+                    saveBinId(data.metadata.id);
+                }
+            } catch(e){ console.error('JSONBin 생성 오류', e); }
+        } else {
+            // 기존 bin 업데이트
+            try {
+                await fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Master-Key': JSONBIN_API_KEY
+                    },
+                    body: JSON.stringify(arr)
+                });
+            } catch(e){ console.error('JSONBin 저장 오류', e); }
+        }
+    }
 
     function fmtSize(n){
         if(n < 1024) return n+'B';
@@ -1870,7 +1924,7 @@
 
     let editingId = null;
 
-    function submitEntry(){
+    async function submitEntry(){
         const nick = document.getElementById('gb-nick').value.trim();
         const pw   = document.getElementById('gb-pw').value;
         const type = document.getElementById('gb-type').value;
@@ -1882,12 +1936,16 @@
         if(!body){ showError('내용을 입력해주세요.'); return; }
         err.style.display = 'none';
 
-        const entries = loadEntries();
+        const submitBtn = document.querySelector('.btn-submit');
+        submitBtn.disabled = true;
+        submitBtn.textContent = '저장 중…';
+
+        const entries = await loadEntries();
 
         if(editingId){
             const idx = entries.findIndex(e => e.id === editingId);
             if(idx !== -1){
-                if(entries[idx].pw !== pw){ showError('비밀번호가 일치하지 않습니다.'); return; }
+                if(entries[idx].pw !== pw){ showError('비밀번호가 일치하지 않습니다.'); submitBtn.disabled=false; submitBtn.textContent='수정 완료'; return; }
                 entries[idx].nick = nick;
                 entries[idx].type = type;
                 entries[idx].body = body;
@@ -1897,7 +1955,6 @@
             editingId = null;
             document.getElementById('gb-form-title').textContent = '✏️ 글 남기기';
             document.getElementById('gb-cancel-btn').style.display = 'none';
-            document.querySelector('.btn-submit').textContent = '등록';
         } else {
             entries.unshift({
                 id: Date.now().toString(),
@@ -1908,9 +1965,11 @@
             });
         }
 
-        saveEntries(entries);
+        await saveEntries(entries);
+        submitBtn.disabled = false;
+        submitBtn.textContent = '등록';
         clearForm();
-        renderList();
+        await renderList();
     }
 
     function showError(msg){
@@ -1933,10 +1992,11 @@
         document.querySelector('.btn-submit').textContent = '등록';
     }
 
-    function renderList(){
-        const entries = loadEntries();
+    async function renderList(){
         const list    = document.getElementById('gb-list');
         const countEl = document.getElementById('gb-count');
+        list.innerHTML = '<div class="gb-empty"><span>⏳</span>불러오는 중...</div>';
+        const entries = await loadEntries();
         const bugs    = entries.filter(e => e.type==='bug').length;
         const guests  = entries.filter(e => e.type==='guest').length;
         countEl.innerHTML = `총 <strong>${entries.length}개</strong> (방명록 ${guests} · 버그제보 ${bugs})`;
@@ -2004,14 +2064,14 @@
         document.getElementById('pw-modal').style.display = 'none';
         modalAction = null; modalTargetId = null;
     }
-    function confirmModal(){
+    async function confirmModal(){
         const pw = document.getElementById('modal-pw').value;
-        const entries = loadEntries();
+        const entries = await loadEntries();
         const idx = entries.findIndex(e => e.id === modalTargetId);
         if(idx === -1){ closeModal(); return; }
         if(entries[idx].pw !== pw){ document.getElementById('modal-error').style.display='block'; return; }
         if(modalAction === 'delete'){
-            entries.splice(idx, 1); saveEntries(entries); closeModal(); renderList();
+            entries.splice(idx, 1); await saveEntries(entries); closeModal(); await renderList();
         } else if(modalAction === 'edit'){
             const e = entries[idx];
             document.getElementById('gb-nick').value = e.nick;
@@ -2040,7 +2100,7 @@
     document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); });
 
     // 초기 렌더링
-    renderList();
+    renderList();  // async지만 top-level에서 호출 가능 (반환값 무시)
 </script>
 </body>
 </html>
