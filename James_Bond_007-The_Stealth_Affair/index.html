@@ -1804,7 +1804,7 @@
 
     /* ════════ 방명록 (jsonbin.io 공유 저장소) ════════ */
     // 모든 방문자가 같은 글 목록을 보도록 localStorage 대신 jsonbin.io의 공유 Bin을 사용합니다.
-    const JSONBIN_MASTER_KEY = '$2a$10$b0LAr7Hw4nj/G/BokKWzbO4/3L3desylEmVEd4HjbiRo2nJ89lkL6';
+    const JSONBIN_ACCESS_KEY = '$2a$10$5NJmcdoFsbsXSjVNbn7Q2.cTIHVjD7Wk8WDuwTGqTSLH0Hv6Yhb4y';
     const JSONBIN_BASE = 'https://api.jsonbin.io/v3/b';
     // 최초 1회 자동으로 Bin이 생성됩니다. 생성 후 화면에 나오는 ID를 복사해서 아래에 고정으로 넣고
     // 파일을 다시 업로드하면, 이후로는 새 Bin이 생기지 않고 항상 같은 저장소를 씁니다.
@@ -1819,7 +1819,7 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-Master-Key': JSONBIN_MASTER_KEY,
+                'X-Access-Key': JSONBIN_ACCESS_KEY,
                 'X-Bin-Name': 'stealth_affair_guestbook'
             },
             body: JSON.stringify({ list: [] })
@@ -1853,7 +1853,7 @@
         try{
             const id = await ensureBin();
             const res = await fetch(`${JSONBIN_BASE}/${id}/latest`, {
-                headers: { 'X-Master-Key': JSONBIN_MASTER_KEY }
+                headers: { 'X-Access-Key': JSONBIN_ACCESS_KEY }
             });
             if(!res.ok){
                 const t = await res.text().catch(()=> '');
@@ -1874,7 +1874,7 @@
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-Master-Key': JSONBIN_MASTER_KEY
+                    'X-Access-Key': JSONBIN_ACCESS_KEY
                 },
                 body: JSON.stringify({ list: arr })
             });
