@@ -109,6 +109,41 @@
         }
         .badge strong { color: var(--gold-lt); }
 
+        /* ── 타 한글화 사이트 링크 ── */
+        .other-sites {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .other-sites-label {
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+        .other-site-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--surface2);
+            border: 1px solid var(--gold-dk);
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            color: var(--gold-lt);
+            transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+        .other-site-link:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 10px rgba(201,168,76,0.25);
+            background: #1a1408;
+            text-decoration: none;
+            color: var(--white);
+        }
+
         /* ── 컨테이너 ── */
         .container {
             max-width: 820px;
@@ -825,7 +860,7 @@
             margin-top: 12px;
             justify-content: flex-end;
         }
-        .btn-edit, .btn-delete {
+        .btn-edit, .btn-delete, .btn-reply {
             padding: 5px 14px;
             border-radius: 5px;
             font-size: 0.8rem;
@@ -837,6 +872,117 @@
         }
         .btn-edit:hover   { border-color: var(--gold); color: var(--gold); }
         .btn-delete:hover { border-color: var(--danger); color: var(--danger); }
+        .btn-reply:hover  { border-color: #6aa0d8; color: #6aa0d8; }
+        .btn-reply { margin-right: auto; }
+
+        /* ── 댓글(답글) ── */
+        .gb-comments {
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px dashed var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .gb-comment {
+            display: flex;
+            gap: 10px;
+            padding-left: 6px;
+        }
+        .gb-comment::before {
+            content: '↳';
+            color: var(--muted);
+            flex-shrink: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .gb-comment-body { flex: 1; min-width: 0; }
+        .gb-comment-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 2px;
+        }
+        .gb-comment-nick { font-weight: 700; color: var(--white); font-size: 0.85rem; }
+        .gb-comment-date { font-size: 0.7rem; color: var(--muted); margin-left: auto; }
+        .gb-comment-text { font-size: 0.88rem; color: var(--text); line-height: 1.55; white-space: pre-wrap; word-break: break-all; }
+        .gb-comment-actions { display: flex; gap: 6px; margin-top: 4px; }
+        .btn-comment-delete {
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.72rem;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            background: none;
+            color: var(--muted);
+            transition: all 0.2s;
+        }
+        .btn-comment-delete:hover { border-color: var(--danger); color: var(--danger); }
+
+        .gb-reply-form {
+            display: none;
+            margin-top: 12px;
+            padding: 12px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+        .gb-reply-form.open { display: block; }
+        .gb-reply-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+        .gb-reply-row input {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text);
+            font-size: 0.85rem;
+            padding: 7px 10px;
+            font-family: inherit;
+        }
+        .gb-reply-row input:focus { outline: none; border-color: var(--gold); }
+        .gb-reply-row .gb-reply-nick { flex: 1 1 120px; }
+        .gb-reply-row .gb-reply-pw   { flex: 1 1 100px; }
+        .gb-reply-form textarea {
+            width: 100%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text);
+            font-size: 0.85rem;
+            padding: 8px 10px;
+            font-family: inherit;
+            resize: vertical;
+            margin-bottom: 8px;
+        }
+        .gb-reply-form textarea:focus { outline: none; border-color: var(--gold); }
+        .gb-reply-actions { display: flex; gap: 8px; justify-content: flex-end; }
+        .btn-reply-submit {
+            padding: 6px 16px;
+            background: var(--gold);
+            color: #1a1408;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-reply-submit:hover { background: var(--gold-lt); }
+        .btn-reply-cancel {
+            padding: 6px 14px;
+            background: none;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.82rem;
+            cursor: pointer;
+        }
+        .btn-reply-cancel:hover { border-color: var(--muted); color: var(--text); }
 
         .gb-empty {
             text-align: center;
@@ -901,6 +1047,12 @@
         <span class="badge">패치 <strong>v0.8.3</strong></span>
         <span class="badge">배포 <strong>2026.06.23</strong></span>
         <span class="badge">제작 <strong>securityrimo</strong></span>
+    </div>
+    <div class="other-sites">
+        <span class="other-sites-label">다른 한글화 프로젝트</span>
+        <a class="other-site-link" href="https://securityrimo.github.io/scummvm-kr/Future_Wars/index.html" target="_blank" rel="noopener">
+            🕹️ 미래 전쟁 (Future Wars) 한국어판 →
+        </a>
     </div>
 </div>
 
@@ -1643,6 +1795,10 @@
 <footer>
     <p>ScummVM Cine Engine Korean Localization &nbsp;—&nbsp; <strong>v0.8.3</strong></p>
     <p style="margin-top:6px;">한국어판 제작: <strong>securityrimo</strong> &nbsp;|&nbsp; 제임스 본드 007: 더 스텔스 어페어 한국어판 배포 사이트.</p>
+    <p style="margin-top:10px;">
+        다른 한글화 프로젝트 보러가기 &nbsp;
+        <a href="https://securityrimo.github.io/scummvm-kr/Future_Wars/index.html" target="_blank" rel="noopener">미래 전쟁 (Future Wars) 한국어판 →</a>
+    </p>
 </footer>
 
 <script>
@@ -2065,12 +2221,110 @@
                 </div>
                 <div class="gb-body">${escHtml(e.body)}</div>
                 ${filesHtml}
+                ${renderComments(e)}
                 <div class="gb-entry-actions">
+                    <button class="btn-reply" onclick="toggleReplyForm('${e.id}')">💬 답글</button>
                     <button class="btn-edit" onclick="startEdit('${e.id}')">수정</button>
                     <button class="btn-delete" onclick="startDelete('${e.id}')">삭제</button>
                 </div>
+                <div class="gb-reply-form" id="reply-form-${e.id}">
+                    <div class="gb-reply-row">
+                        <input type="text" class="gb-reply-nick" id="reply-nick-${e.id}" placeholder="닉네임" maxlength="30">
+                        <input type="password" class="gb-reply-pw" id="reply-pw-${e.id}" placeholder="비밀번호(삭제용)" maxlength="30">
+                    </div>
+                    <textarea id="reply-body-${e.id}" rows="2" placeholder="답글을 입력해주세요..."></textarea>
+                    <div class="gb-reply-actions">
+                        <button class="btn-reply-cancel" onclick="toggleReplyForm('${e.id}')">취소</button>
+                        <button class="btn-reply-submit" onclick="submitComment('${e.id}')">답글 등록</button>
+                    </div>
+                </div>
             </div>`;
         }).join('');
+    }
+
+    function renderComments(e){
+        const comments = e.comments || [];
+        if(!comments.length) return '';
+        return `<div class="gb-comments">
+            ${comments.map(c => `
+                <div class="gb-comment" id="comment-${c.id}">
+                    <div class="gb-comment-body">
+                        <div class="gb-comment-header">
+                            <span class="gb-comment-nick">${escHtml(c.nick)}</span>
+                            <span class="gb-comment-date">${formatDate(c.createdAt)}</span>
+                        </div>
+                        <div class="gb-comment-text">${escHtml(c.body)}</div>
+                        <div class="gb-comment-actions">
+                            <button class="btn-comment-delete" onclick="startCommentDelete('${e.id}','${c.id}')">삭제</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('')}
+        </div>`;
+    }
+
+    function toggleReplyForm(entryId){
+        const form = document.getElementById(`reply-form-${entryId}`);
+        if(!form) return;
+        document.querySelectorAll('.gb-reply-form.open').forEach(f => { if(f !== form) f.classList.remove('open'); });
+        form.classList.toggle('open');
+        if(form.classList.contains('open')){
+            setTimeout(() => document.getElementById(`reply-nick-${entryId}`).focus(), 50);
+        }
+    }
+
+    async function submitComment(entryId){
+        const nick = document.getElementById(`reply-nick-${entryId}`).value.trim();
+        const pw   = document.getElementById(`reply-pw-${entryId}`).value;
+        const body = document.getElementById(`reply-body-${entryId}`).value.trim();
+
+        if(!nick){ alert('닉네임을 입력해주세요.'); return; }
+        if(!pw)  { alert('비밀번호를 입력해주세요.'); return; }
+        if(!body){ alert('답글 내용을 입력해주세요.'); return; }
+
+        const entries = await loadEntries();
+        const idx = entries.findIndex(e => e.id === entryId);
+        if(idx === -1) return;
+
+        if(!entries[idx].comments) entries[idx].comments = [];
+        entries[idx].comments.push({
+            id: Date.now().toString(),
+            nick, pw, body,
+            createdAt: new Date().toISOString()
+        });
+
+        const ok = await saveEntries(entries);
+        if(!ok) return;
+        await renderList();
+    }
+
+    let commentDeleteTarget = null;
+    function startCommentDelete(entryId, commentId){
+        commentDeleteTarget = { entryId, commentId };
+        document.getElementById('modal-pw').value = '';
+        document.getElementById('modal-error').style.display = 'none';
+        const modal = document.getElementById('pw-modal');
+        modal.style.display = 'flex';
+        setTimeout(() => document.getElementById('modal-pw').focus(), 50);
+        document.getElementById('modal-confirm-btn').onclick = confirmCommentDelete;
+        document.getElementById('modal-pw').onkeydown = e => { if(e.key==='Enter') confirmCommentDelete(); };
+    }
+    async function confirmCommentDelete(){
+        if(!commentDeleteTarget) return;
+        const pw = document.getElementById('modal-pw').value;
+        const entries = await loadEntries();
+        const eIdx = entries.findIndex(e => e.id === commentDeleteTarget.entryId);
+        if(eIdx === -1){ closeModal(); commentDeleteTarget = null; return; }
+        const comments = entries[eIdx].comments || [];
+        const cIdx = comments.findIndex(c => c.id === commentDeleteTarget.commentId);
+        if(cIdx === -1){ closeModal(); commentDeleteTarget = null; return; }
+        if(comments[cIdx].pw !== pw){ document.getElementById('modal-error').style.display = 'block'; return; }
+        comments.splice(cIdx, 1);
+        entries[eIdx].comments = comments;
+        await saveEntries(entries);
+        closeModal();
+        commentDeleteTarget = null;
+        await renderList();
     }
 
     function escHtml(s){
@@ -2095,6 +2349,7 @@
     function closeModal(){
         document.getElementById('pw-modal').style.display = 'none';
         modalAction = null; modalTargetId = null;
+        commentDeleteTarget = null;
     }
     async function confirmModal(){
         const pw = document.getElementById('modal-pw').value;
