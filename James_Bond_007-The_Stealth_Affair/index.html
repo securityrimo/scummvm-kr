@@ -109,39 +109,126 @@
         }
         .badge strong { color: var(--gold-lt); }
 
-        /* ── 타 한글화 사이트 링크 ── */
-        .other-sites {
-            margin-top: 18px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
+        /* ── 타 한글화 사이트 링크 (강조) ── */
+        @keyframes otherSiteGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.35), 0 0 18px rgba(201,168,76,0.18); }
+            50%      { box-shadow: 0 0 0 6px rgba(201,168,76,0.06), 0 0 28px rgba(201,168,76,0.32); }
         }
-        .other-sites-label {
-            font-size: 0.72rem;
-            letter-spacing: 0.08em;
-            color: var(--muted);
-            text-transform: uppercase;
+        .other-sites {
+            margin-top: 22px;
+            display: flex;
+            justify-content: center;
         }
         .other-site-link {
+            position: relative;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            background: var(--surface2);
-            border: 1px solid var(--gold-dk);
-            border-radius: 20px;
-            padding: 6px 16px;
-            font-size: 0.85rem;
-            color: var(--gold-lt);
-            transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+            gap: 12px;
+            background: linear-gradient(135deg, #241c0a 0%, #120e05 100%);
+            border: 1.5px solid var(--gold);
+            border-radius: 14px;
+            padding: 12px 22px;
+            color: var(--white);
+            text-decoration: none;
+            animation: otherSiteGlow 2.6s ease-in-out infinite;
+            transition: transform 0.2s, border-color 0.2s, background 0.2s;
         }
         .other-site-link:hover {
-            border-color: var(--gold);
-            box-shadow: 0 0 10px rgba(201,168,76,0.25);
-            background: #1a1408;
+            transform: translateY(-2px);
+            border-color: var(--gold-lt);
+            background: linear-gradient(135deg, #2e2410 0%, #181206 100%);
             text-decoration: none;
             color: var(--white);
+        }
+        .other-site-icon {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+        .other-site-text { display: flex; flex-direction: column; line-height: 1.35; text-align: left; }
+        .other-site-tag {
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        .other-site-name {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+        .other-site-sub {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-top: 1px;
+        }
+        .other-site-arrow {
+            font-size: 1.3rem;
+            color: var(--gold-lt);
+            margin-left: 4px;
+            transition: transform 0.2s;
+        }
+        .other-site-link:hover .other-site-arrow { transform: translateX(4px); }
+
+        /* ── 본문 상단 강조 배너 ── */
+        .other-site-banner {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: linear-gradient(120deg, #1a1408 0%, #100c05 60%, #1a1408 100%);
+            border: 1px solid var(--gold-dk);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            text-decoration: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .other-site-banner:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 16px rgba(201,168,76,0.2);
+            text-decoration: none;
+        }
+        .other-site-banner .other-site-banner-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        .other-site-banner .other-site-banner-text {
+            flex: 1 1 240px;
+        }
+        .other-site-banner .other-site-banner-title {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .other-site-banner .other-site-banner-desc {
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+        .other-site-banner .other-site-banner-desc strong { color: var(--gold-lt); }
+        .other-site-banner-btn {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold);
+            color: #1a1408;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .other-site-banner-btn:hover {
+            background: var(--gold-lt);
+            transform: translateY(-1px);
+            text-decoration: none;
+            color: #1a1408;
         }
 
         /* ── 컨테이너 ── */
@@ -261,6 +348,12 @@
             gap: 14px;
         }
         @media (max-width: 540px) { .pros-cons { grid-template-columns: 1fr; } }
+        @media (max-width: 560px) {
+            .other-site-link { flex-direction: column; text-align: center; padding: 14px 18px; }
+            .other-site-text { text-align: center; }
+            .other-site-banner { flex-direction: column; text-align: center; }
+            .other-site-banner-btn { width: 100%; justify-content: center; }
+        }
         .pc-card {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -1049,15 +1142,49 @@
         <span class="badge">제작 <strong>securityrimo</strong></span>
     </div>
     <div class="other-sites">
-        <span class="other-sites-label">다른 한글화 프로젝트</span>
         <a class="other-site-link" href="https://securityrimo.github.io/scummvm-kr/Future_Wars/index.html" target="_blank" rel="noopener">
-            🕹️ 미래 전쟁 (Future Wars) 한국어판 →
+            <span class="other-site-icon">🕹️</span>
+            <span class="other-site-text">
+                <span class="other-site-tag">다른 한글화 프로젝트</span>
+                <span class="other-site-name">미래 전쟁 (Future Wars) 한국어판</span>
+                <span class="other-site-sub">securityrimo의 또 다른 ScummVM 한글화 작업</span>
+            </span>
+            <span class="other-site-arrow">→</span>
+        </a>
+    </div>
+     <div class="other-sites">
+        <a class="other-site-link" href="https://securityrimo.github.io/scummvm-kr/Might_And_Magic_1_Enhanced/index.html" target="_blank" rel="noopener">
+            <span class="other-site-icon">🕹️</span>
+            <span class="other-site-text">
+                <span class="other-site-tag">다른 한글화 프로젝트</span>
+                <span class="other-site-name">마이트앤매직1 강화버전 (Might and Magic 1 Enhanced) 한국어판</span>
+                <span class="other-site-sub">securityrimo의 또 다른 ScummVM 한글화 작업</span>
+            </span>
+            <span class="other-site-arrow">→</span>
         </a>
     </div>
 </div>
 
 <!-- ═══════════════ MAIN ═══════════════ -->
 <div class="container">
+
+    <!-- 타 한글화 프로젝트 강조 배너 -->
+    <a class="other-site-banner" href="https://securityrimo.github.io/scummvm-kr/Future_Wars/index.html" target="_blank" rel="noopener">
+        <span class="other-site-banner-icon">🕹️</span>
+        <span class="other-site-banner-text">
+            <span class="other-site-banner-title">다른 한글화 프로젝트도 확인해보세요</span>
+            <span class="other-site-banner-desc"><strong>미래 전쟁 (Future Wars)</strong> 한국어판 — securityrimo의 또 다른 ScummVM Cine 엔진 한글화 작업</span>
+        </span>
+        <span class="other-site-banner-btn">바로가기 →</span>
+    </a>
+    <a class="other-site-banner" href="https://securityrimo.github.io/scummvm-kr/Might_And_Magic_1_Enhanced/index.html" target="_blank" rel="noopener">
+        <span class="other-site-banner-icon">🕹️</span>
+        <span class="other-site-banner-text">
+            <span class="other-site-banner-title">다른 한글화 프로젝트도 확인해보세요</span>
+            <span class="other-site-banner-desc"><strong>마이트앤매직1 강화버전 (Might and Magic 1 Enhanced)</strong> 한국어판 — securityrimo의 또 다른 ScummVM Cine 엔진 한글화 작업</span>
+        </span>
+        <span class="other-site-banner-btn">바로가기 →</span>
+    </a>
 
     <!-- 탭 네비게이션 -->
     <div class="tab-nav">
@@ -1795,9 +1922,9 @@
 <footer>
     <p>ScummVM Cine Engine Korean Localization &nbsp;—&nbsp; <strong>v0.8.3</strong></p>
     <p style="margin-top:6px;">한국어판 제작: <strong>securityrimo</strong> &nbsp;|&nbsp; 제임스 본드 007: 더 스텔스 어페어 한국어판 배포 사이트.</p>
-    <p style="margin-top:10px;">
-        다른 한글화 프로젝트 보러가기 &nbsp;
-        <a href="https://securityrimo.github.io/scummvm-kr/Future_Wars/index.html" target="_blank" rel="noopener">미래 전쟁 (Future Wars) 한국어판 →</a>
+    <p style="margin-top:14px;font-size:0.92rem;">
+        🕹️ 다른 한글화 프로젝트 &nbsp;
+        <a href="https://securityrimo.github.io/scummvm-kr/Future_Wars/index.html" target="_blank" rel="noopener" style="font-weight:700;color:var(--gold-lt);">미래 전쟁 (Future Wars) 한국어판 →</a>
     </p>
 </footer>
 
